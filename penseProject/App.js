@@ -1,6 +1,7 @@
+// App.js
 import React from "react";
-import WelcomeScreen from "./WelcomeScreen";
+import Navigation from "./Navigation"; // Importe o arquivo de navegação
 
 export default function App() {
-  return <WelcomeScreen />;
+  return <Navigation />; // Renderiza o componente de navegação
 }
