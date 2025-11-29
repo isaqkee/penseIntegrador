@@ -6,6 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import WelcomeScreen from "./WelcomeScreen"; // Importando WelcomeScreen
 import PaginaIntroducao from "./paginaIntroducao"; // Importando PaginaIntroducao
 
+
 const Stack = createStackNavigator();
 
 export default function Navigation() {
