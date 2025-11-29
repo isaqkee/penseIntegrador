@@ -1,5 +1,16 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, ImageBackground, Dimensions, SafeAreaView, TouchableOpacity, Image, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Dimensions,
+  SafeAreaView,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+} from "react-native";
+
 import bgImage from "./assets/fundo1.png";
 
 const { width, height } = Dimensions.get("window");
@@ -11,56 +22,60 @@ export default function PaginaIntroducao() {
       style={[styles.background, { width, height }]}
     >
       <SafeAreaView style={styles.container}>
-        
-        <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-
+        <ScrollView
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
           {/* TÍTULO */}
           <View style={styles.header}>
             <Text style={styles.title}>Seja bem vindo{"\n"}ao Pense!</Text>
-            <Image 
-              source={require("./img/iconGraduation.png")} 
+            <Image
+              source={require("./img/iconGraduation.png")}
               style={styles.icon}
               resizeMode="contain"
             />
           </View>
 
-          {/* Seção 1 */}
+          {/* Seção 1 — Barra esquerda */}
           <View style={styles.sectionContainer}>
             <View style={styles.redBar} />
             <View style={styles.textBlock}>
               <Text style={styles.sectionTitle}>O que vamos fazer?</Text>
               <Text style={styles.sectionText}>
                 Vamos utilizar o método Naive Bayes como uma ferramenta de apoio
-                para ajudar você a tomar uma decisão após se formar na faculdade.
-                A ideia é mostrar como esse modelo probabilístico pode analisar
-                diferentes fatores, como interesses, oportunidades e preferências
-                para indicar caminhos possíveis.
+                para ajudar você a tomar uma decisão após se formar na
+                faculdade. A ideia é mostrar como esse modelo probabilístico pode
+                analisar diferentes fatores, como interesses, oportunidades e
+                preferências para indicar caminhos possíveis.
               </Text>
             </View>
           </View>
 
-          {/* Seção 2 */}
-          <View style={styles.sectionContainer}>
-            <View style={styles.redBar} />
+          {/* Seção 2 — Barra direita */}
+          <View style={styles.sectionContainerRight}>
             <View style={styles.textBlock}>
               <Text style={styles.sectionTitle}>O que é o Naive Bayes?</Text>
               <Text style={styles.sectionText}>
-                Naive Bayes é um algoritmo de aprendizado de máquina supervisionado
-                que usa o Teorema de Bayes para tarefas de classificação, assumindo
-                que as características dos dados são independentes entre si.
-                Essa suposição simplifica o cálculo, tornando o algoritmo rápido,
-                eficiente e fácil de implementar, além de ser útil em tarefas como
-                classificação de texto e filtragem de spam.
+                Naive Bayes é um algoritmo de aprendizado de máquina
+                supervisionado que usa o Teorema de Bayes para tarefas de
+                classificação, assumindo que as características dos dados são
+                independentes entre si. Essa suposição simplifica o cálculo,
+                tornando o algoritmo rápido, eficiente e fácil de implementar,
+                além de ser útil em tarefas como classificação de texto e
+                filtragem de spam.
               </Text>
             </View>
+            <View style={styles.redBarRight} />
           </View>
-
         </ScrollView>
       </SafeAreaView>
 
       {/* BOTÃO */}
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={() => console.log("Próximo pressionado")}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => console.log("Próximo pressionado")}
+        >
           <Text style={styles.buttonText}>Próximo</Text>
         </TouchableOpacity>
       </View>
@@ -69,8 +84,6 @@ export default function PaginaIntroducao() {
     </ImageBackground>
   );
 }
-
-// ---------------- ESTILOS ----------------
 
 const styles = StyleSheet.create({
   background: {
@@ -107,17 +120,35 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
 
+  /* Seção 1 */
   sectionContainer: {
     flexDirection: "row",
     marginTop: 30,
     width: "100%",
   },
 
+  /* Seção 2 */
+  sectionContainerRight: {
+    flexDirection: "row",
+    marginTop: 30,
+    width: "100%",
+    justifyContent: "flex-start",
+  },
+
+  /* Barra esquerda */
   redBar: {
     width: 4,
     backgroundColor: "red",
     borderRadius: 10,
-    marginRight: 10,
+    marginRight: 12,
+  },
+
+  /* Barra direita alinhada */
+  redBarRight: {
+    width: 4,
+    backgroundColor: "red",
+    borderRadius: 10,
+    marginLeft: 12,
   },
 
   textBlock: {
@@ -136,19 +167,19 @@ const styles = StyleSheet.create({
     color: "#222",
   },
 
-  // --------------- BOTÃO ---------------
+  /* BOTÃO */
   buttonContainer: {
     width: "100%",
     alignItems: "center",
     position: "absolute",
-    bottom: 0,
+    bottom: -5,
     marginBottom: 80,
     justifyContent: "center",
   },
 
   button: {
     position: "absolute",
-    bottom: 40,
+    bottom: 10,
     backgroundColor: "black",
     paddingVertical: 14,
     paddingHorizontal: 40,
@@ -165,4 +196,3 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 });
-
